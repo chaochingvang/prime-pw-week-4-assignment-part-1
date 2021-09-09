@@ -87,24 +87,53 @@ console.log('Testing find w/o value in array:', find(99, [1, 2, 3, 4, 5, 6]));
 // 8. Function to check if a letter is the first letter in a
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  if (string.charAt(0) === letter){
+    return true;
+  }
+  return false;
 }
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll( ) {
+function sumAll( array ) {
   let sum = 0
   // TODO: loop to add items
+    for (let number of array){
+      sum += number;
+    } //end for
   return sum;
 }
+
+console.log('Testing sumAll w/ 1,2,3,4,5,6:', sumAll([1, 2, 3, 4, 5, 6]));
+
+
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-
+function onlyPos(array){
+  for (i = 0; i < (array.length); i++){
+    console.log(array[i], array);
+    if (array[i] < 0){
+      array.splice(i, 1);
+      i--;
+    } //end if
+  } //end for
+  return array;
+}
+console.log('Testing onlyPos with -2, -1, 0, 1, 2:', onlyPos([-2, -1, 0, 1, 2]));
+console.log('Testing onlyPos with -4, -3, -2, -1, 0:', onlyPos([-4, -3, -2, -1, 0]));
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or
 //     CodeWars(https://www.codewars.com/). Then describe it
 //     here in a comment, write the function, and test it!
+
+//Find the mean in a set of numbers
+function meanNumbers(array){
+  let mean = sumAll(array) / array.length;      //Using the sumAll function from above
+  return mean;
+}
+
+console.log('Testing meanNumbers w/ 321, 123, 756, 98876, 4:', meanNumbers([321, 123, 756, 98876, 4]));
