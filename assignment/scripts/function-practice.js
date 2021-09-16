@@ -15,7 +15,7 @@ console.log('Test - should say "Hello World!"', hello());
 // 2. Function to return an personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
 function helloName( name ) {
-  return name;
+  return `Hello, ${name}!`;
 }
 // Remember to call the function to test
 console.log('Testing helloName:', helloName('Mike'));
